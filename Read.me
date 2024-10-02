@@ -1,0 +1,40 @@
+Model Selection and Preprocessing:
+
+The project uses a pretrained EfficientNet_B0 model from the torchvision library, which is known for its efficiency and accuracy in image classification tasks (wildfire-classification.ipynb).
+It applies specific transformations (e.g., normalization and resizing) to the input images to prepare them for processing by the model. These transformations are derived from the default transformations associated with the EfficientNet_B0 pretrained weights.
+Data Loading:
+
+The project creates data loaders for training and testing datasets, facilitating batch processing and efficient data handling during model training and evaluation (wildfire-classification.ipynb).
+Training:
+
+The model is trained on a dataset of satellite images labeled as either containing wildfires or not. The training process involves adjusting the model's weights based on the loss computed from the predictions and the actual labels, using an optimizer (wildfire-classification.ipynb).
+Evaluation:
+
+The model's performance is evaluated on a separate test dataset to assess its accuracy in classifying images as containing wildfires or not. This step is crucial for understanding the model's effectiveness and generalization capability (wildfire-classification.ipynb).
+Model Saving and Loading:
+
+After training, the model is saved to disk for later use or deployment. It can be loaded back into the application as needed for classification tasks or further fine-tuning (wildfire-classification.ipynb).
+Web Interface:
+
+The project includes a web interface built with Streamlit, providing a user-friendly way to interact with the model. Users can learn about the project's motivation and goals, and potentially upload images for classification (Getting_Started.py).
+Dataset:
+
+The dataset used for training and testing the model is sourced from Kaggle, specifically designed for wildfire prediction tasks (validation_dataset/README.txt).
+This project exemplifies the application of deep learning in environmental monitoring, showcasing how satellite imagery can be used to detect and classify wildfires, potentially aiding in early detection and response efforts.
+
+
+
+
+
+
+data_setup.py: This script is responsible for preparing and downloading the data needed for training and testing the model. It likely contains functions for data preprocessing, augmentation, and loading into PyTorch DataLoader objects.
+
+engine.py: Contains various training functions, such as the steps to perform in each training epoch, validation/testing steps, and possibly metrics calculation. It's the core of the training loop, handling the forward and backward passes, loss computation, and model evaluation.
+
+model_builder.py: A script dedicated to creating the PyTorch model. In this case, it mentions creating a TinyVGG model, which is a simplified version of the VGG architecture, tailored for the specific task of wildfire classification.
+
+train.py: Leverages all the other files to orchestrate the model training process. It likely initializes the model, data loaders, optimizer, and loss function, and then calls the training loop functions defined in engine.py.
+
+utils.py: Dedicated to helpful utility functions, which could include saving and loading models, logging, and other miscellaneous tasks that support the main training and evaluation processes.
+
+Extra: predictions.py: A script for making predictions with a trained PyTorch model on input images. It includes functions for processing input images, performing inference, and possibly visualizing the predictions.
